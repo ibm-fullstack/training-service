@@ -38,6 +38,7 @@ public class ScheduledTasks {
         for (Trainings trainings : trainingList) {
         	if (trainings.getProgress() < 100) {
         		trainings.setProgress(trainings.getProgress() + 5);
+        		trainingRepository.save(trainings);
         		if (trainings.getProgress() == 100) {
     				//send payment to mentor
             		trainings.setStatus(TrainingStatus.COMPLETED);
