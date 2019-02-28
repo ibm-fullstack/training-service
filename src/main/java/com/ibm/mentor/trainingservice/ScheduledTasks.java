@@ -31,8 +31,9 @@ public class ScheduledTasks {
 	@Autowired
 	MentorRepository mentorRepository;	
 //	0 0 12 * * ?
+//	0 * * * * ?
 	@Transactional
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = "0 0 12 * * ?")
     public void scheduleTaskWithCronExpression() {
         logger.info("Cron Task :: Execution Time - {}", dateTimeFormatter.format(LocalDateTime.now()));
         List<Trainings> trainingList = trainingRepository.findByStatus(TrainingStatus.STARTED);
